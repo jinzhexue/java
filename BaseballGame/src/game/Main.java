@@ -5,11 +5,14 @@ public class Main {
     //public static void main(String args[]) {
     public static void main(String[] args) {
         int roundnum = 9;
-        Player p;
+
         Team teamA = new Team();
         Team teamB = new Team();
         teamA.setName("ソフトバンク");
         teamB.setName("楽天");
+        Player p = new Player();
+        Player h = new Player();
+
 
         System.out.println("---野球ゲームプログラム開始---");//最大回数の名前分かりやすくするように
         for (int round = 0; round < roundnum; round++) {
@@ -18,7 +21,7 @@ public class Main {
                 roundnum += 1; //roundnum++;
             }
             for(int ch = 0; ch <2; ch++) {
-                p = new Player();  //もう一回考える
+                p = new Player(); 
                 if (ch == 0) {
                     System.out.println("★★★★第" + (round + 1) + "回合の上回合★★★★");
                     System.out.println("攻撃チーム:" + teamA.name

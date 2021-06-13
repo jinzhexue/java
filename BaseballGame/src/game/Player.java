@@ -1,11 +1,15 @@
 package game;
 
 public class Player {
+    String name;
+    int htk;
+    int ptk;
     int basecnt; //進塁人数
     int ballchance; //攻撃チャンス　3回
     int outcnt;  //アウト人数、　アウト3人チェンジ//管理
     int basechance; //ボールによる進塁チャンス　　4
     int ball;
+
 
     Player() {
         this.basecnt = 0;
@@ -30,14 +34,20 @@ public class Player {
         }
     }
     public int pitch() {
-        ball = new java.util.Random().nextInt(100) + 1;
+        if (ptk>90) {
+            ball = new java.util.Random().nextInt(95) + 1;
+        }
+        else
+            ball = new java.util.Random().nextInt(100) + 1;
+
         return ball;
     }
 
+
     public void hit(Team team, int ball , int round) {
-        int hittype = new java.util.Random().nextInt(2) + 1;
+        //int hittype = new java.util.Random().nextInt(2) + 1;
         if (ball < 45) {//ボール
-            if(hittype == 1) {
+            if(htk<ptk) {
                 delChance();
                 System.out.println("ボールです。" + team.name + ": ボール打ちました。" );
             } else {
